@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="RepositoryServer.CommService" CodeBehind="RepositoryService.svc.cs" %>

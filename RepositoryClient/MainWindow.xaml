@@ -1,0 +1,142 @@
+﻿<Window x:Class="RepositoryClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="578" Width="792" Unloaded="Window_Unloaded">
+    <Grid>
+        <TabControl Margin="12,12,12,29" Name="tabControl1">
+            <TabItem Header="Login" Name="tabItem1">
+                <Grid>
+                    <GroupBox Header="Connect" Margin="16,10,22,322" Name="ConnectGroup" Width="698">
+                        <Grid>
+                            <TextBox Margin="88,33,394,51" Name="textBox1" />
+                            <Label Content="IP Address" Margin="16,31,597,52" Name="label1" />
+                            <Label Content="Port" Margin="332,31,315,52" Name="label2" />
+                            <TextBox Margin="376,33,230,52" Name="textBox2" />
+                            <Button Content="Connect" Margin="501,31,96,52" Name="button1" Click="button1_Click" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Login" Margin="16,176,22,111" Name="LoginGroup" IsEnabled="False" Width="698">
+                        <Grid>
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="82,27,0,0" Name="textBox3" VerticalAlignment="Top" Width="187" />
+                            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="82,70,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="187" />
+                            <Label Content="Username" Height="28" HorizontalAlignment="Left" Margin="10,27,0,0" Name="label3" VerticalAlignment="Top" />
+                            <Label Content="Password" Height="28" HorizontalAlignment="Left" Margin="10,70,0,0" Name="label4" VerticalAlignment="Top" />
+                            <Button Content="Login" Height="23" HorizontalAlignment="Left" Margin="82,107,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="button2_Click" />
+                            <Button Content="Logout" Height="23" HorizontalAlignment="Left" Margin="194,107,0,0" Name="button3" VerticalAlignment="Top" Width="75" Click="button3_Click" />
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Insertion" Name="tabItem2" IsEnabled="False">
+                <Grid Height="457" Width="731">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="444*" />
+                        <ColumnDefinition Width="287*" />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="Package" Margin="18,15,41,354" Name="groupBox1">
+                        <Grid>
+                            <TextBox Margin="62,20,0,22" Name="textBox4" HorizontalAlignment="Left" Width="198" IsReadOnly="True" />
+                            <Label Content="Package" Margin="6,18,313,19" Name="label5" />
+                            <Button Content="Browse" Margin="0,18,22,24" Name="button4" HorizontalAlignment="Right" Width="75" Click="button4_Click" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Dependencies" Margin="18,132,6,14" Name="groupBox2" Grid.ColumnSpan="2">
+                        <Grid>
+                            <ListBox Margin="469,60,106,28" Name="listBox3" />
+                            <Button Content="Remove" Margin="596,60,7,187" Name="button7" Click="button7_Click" />
+                            <Label Content="Selected Dependencies" Margin="461,32,88,228" Name="label8" />
+                            <Image Height="59" HorizontalAlignment="Left" Margin="304,50,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="93" />
+                            <Image Height="78" HorizontalAlignment="Left" Margin="332,102,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="95" Source="/RepositoryClient;component/Images/blue%20arrow.png" MouseLeftButtonDown="image2_MouseLeftButtonDown" />
+                            <GroupBox Header="Repository" Margin="14,15,397,15" Name="groupBox4">
+                                <Grid>
+                                    <ListBox Margin="21,70,108,7" Name="listBox1" Width="143" SelectionChanged="listBox1_SelectionChanged" />
+                                    <ListBox Margin="196,70,21,7" Name="listBox2" />
+                                    <Label Content="Packages" Margin="66,41,147,166" Name="label6" />
+                                    <Label Content="Versions" Margin="196,41,21,166" Name="label7" />
+                                    <Button Content="Repository Package List" Margin="21,6,108,200" Name="button9" Click="button9_Click" />
+                                </Grid>
+                            </GroupBox>
+                            <Button Content="Remove All" Margin="596,115,7,132" Name="button5" Click="button5_Click" />
+                            <Label Content="Click to add to dependencies" Height="28" HorizontalAlignment="Left" Margin="302,186,0,0" Name="label9" VerticalAlignment="Top" Width="168" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Check-in" Margin="21,15,46,331" Name="groupBox3" Grid.Column="1">
+                        <Grid>
+                            <RadioButton Content="Open" Height="16" HorizontalAlignment="Left" Margin="34,18,0,0" Name="radioButton1" VerticalAlignment="Top" IsChecked="True" />
+                            <RadioButton Content="Close" Height="16" HorizontalAlignment="Left" Margin="34,42,0,0" Name="radioButton2" VerticalAlignment="Top" />
+                            <Button Content="Check-in" Height="53" HorizontalAlignment="Left" Margin="98,12,0,0" Name="button8" VerticalAlignment="Top" Width="90" Click="button8_Click" />
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Extraction" Name="tabItem3" IsEnabled="False">
+                <Grid>
+                    <GroupBox Header="Repository" Height="446" HorizontalAlignment="Left" Margin="6,6,0,0" Name="groupBox5" VerticalAlignment="Top" Width="500">
+                        <Grid>
+                            <ListBox Height="242" HorizontalAlignment="Left" Margin="24,124,0,0" Name="listBox4" VerticalAlignment="Top" Width="170" SelectionChanged="listBox4_SelectionChanged" />
+                            <ListBox Height="242" HorizontalAlignment="Left" Margin="200,124,0,0" Name="listBox5" VerticalAlignment="Top" Width="67" SelectionChanged="listBox5_SelectionChanged" />
+                            <ListBox Height="242" HorizontalAlignment="Left" Margin="321,124,0,0" Name="listBox6" VerticalAlignment="Top" Width="137" />
+                            <Button Content="Repository Package List" Height="50" HorizontalAlignment="Left" Margin="165,11,0,0" Name="button12" VerticalAlignment="Top" Width="143" Click="button12_Click" />
+                            <Label Content="Packages" Height="28" HorizontalAlignment="Left" Margin="84,94,0,0" Name="label10" VerticalAlignment="Top" />
+                            <Label Content="Versions" Height="28" HorizontalAlignment="Left" Margin="200,94,0,0" Name="label11" VerticalAlignment="Top" />
+                            <Label Content="Dependencies" Height="28" HorizontalAlignment="Left" Margin="344,94,0,0" Name="label12" VerticalAlignment="Top" />
+                            <Label Content="Check-in status: " Height="28" HorizontalAlignment="Left" Margin="24,372,0,0" Name="label17" VerticalAlignment="Top" />
+                            <Label Height="28" HorizontalAlignment="Left" Margin="121,372,0,0" Name="label18" VerticalAlignment="Top" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Extract" Height="190" HorizontalAlignment="Left" Margin="524,177,0,0" Name="groupBox6" VerticalAlignment="Top" Width="200">
+                        <Grid>
+                            <Button Content="Component" Height="40" HorizontalAlignment="Left" Margin="54,30,0,0" Name="button10" VerticalAlignment="Top" Width="75" Click="button10_Click" />
+                            <Button Content="Single File" Height="40" HorizontalAlignment="Left" Margin="54,94,0,0" Name="button11" VerticalAlignment="Top" Width="75" Click="button11_Click" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Output Directory" Height="118" HorizontalAlignment="Left" Margin="510,6,0,0" Name="groupBox8" VerticalAlignment="Top" Width="220">
+                        <Grid>
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="23,15,0,0" Name="textBox5" VerticalAlignment="Top" Width="160" />
+                            <Button Content="Browse" Height="23" HorizontalAlignment="Left" Margin="68,55,0,0" Name="button6" VerticalAlignment="Top" Width="75" Click="button6_Click_1" />
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Management" Name="tabItem4" IsEnabled="False">
+                <Grid>
+                    <GroupBox Header="Repository" Height="448" HorizontalAlignment="Left" Margin="6,6,0,0" Name="groupBox9" VerticalAlignment="Top" Width="288">
+                        <Grid>
+                            <ListBox Height="276" HorizontalAlignment="Left" Margin="10,113,0,0" Name="listBox7" VerticalAlignment="Top" Width="162" SelectionChanged="listBox7_SelectionChanged" />
+                            <ListBox Height="276" HorizontalAlignment="Left" Margin="187,113,0,0" Name="listBox8" VerticalAlignment="Top" Width="71" SelectionChanged="listBox8_SelectionChanged" />
+                            <Button Content="Repository Package List" Height="43" HorizontalAlignment="Left" Margin="63,19,0,0" Name="button13" VerticalAlignment="Top" Width="152" Click="button13_Click_1" />
+                            <Label Content="Packages" Height="28" HorizontalAlignment="Left" Margin="63,79,0,0" Name="label13" VerticalAlignment="Top" Width="63" />
+                            <Label Content="Versions" Height="28" HorizontalAlignment="Left" Margin="187,79,0,0" Name="label14" VerticalAlignment="Top" />
+                            <Label Content="Check-in Status:" Height="28" HorizontalAlignment="Left" Margin="6,391,0,0" Name="label20" VerticalAlignment="Top" />
+                            <Label Height="28" HorizontalAlignment="Right" Margin="0,391,131,0" Name="label21" VerticalAlignment="Top" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Management" Height="447" HorizontalAlignment="Left" Margin="421,6,0,0" Name="groupBox7" VerticalAlignment="Top" Width="309">
+                        <Grid>
+                            <ListBox Height="155" HorizontalAlignment="Left" Margin="22,250,0,0" Name="listBox9" VerticalAlignment="Top" Width="155" />
+                            <Label Content="Dependencies" Height="28" HorizontalAlignment="Left" Margin="52,216,0,0" Name="label15" VerticalAlignment="Top" />
+                            <TextBox Height="23" HorizontalAlignment="Left" IsReadOnly="True" Margin="22,157,0,0" Name="textBox6" VerticalAlignment="Top" Width="155" />
+                            <Label Content="Package" Height="28" HorizontalAlignment="Left" Margin="67,123,0,0" Name="label19" VerticalAlignment="Top" />
+                            <Button Content="Remove" Height="32" HorizontalAlignment="Left" Margin="191,246,0,0" Name="button15" VerticalAlignment="Top" Width="77" Click="button15_Click" />
+                            <Button Content="Remove All" Height="35" HorizontalAlignment="Left" Margin="191,295,0,0" Name="button16" VerticalAlignment="Top" Width="77" Click="button16_Click" />
+                            <Button Content="Clear" Height="23" HorizontalAlignment="Left" Margin="193,157,0,0" Name="button17" VerticalAlignment="Top" Width="75" Click="button17_Click" />
+                            <GroupBox Header="Check-in" Height="104" HorizontalAlignment="Left" Margin="22,19,0,0" Name="groupBox10" VerticalAlignment="Top" Width="246">
+                                <Grid>
+                                    <RadioButton Content="Open" Height="16" HorizontalAlignment="Left" Margin="24,10,0,0" Name="radioButton3" VerticalAlignment="Top" IsChecked="True" />
+                                    <RadioButton Content="Closed" Height="16" HorizontalAlignment="Left" Margin="24,32,0,0" Name="radioButton4" VerticalAlignment="Top" />
+                                    <Button Content="Check-in" Height="49" HorizontalAlignment="Left" Margin="115,15,0,0" Name="button14" VerticalAlignment="Top" Width="80" Click="button14_Click" />
+                                    <RadioButton Content="Cancel" Height="16" HorizontalAlignment="Left" Margin="24,0,0,10" Name="radioButton5" VerticalAlignment="Bottom" />
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </GroupBox>
+                    <Image Height="80" HorizontalAlignment="Left" Margin="306,332,0,0" Name="image3" Source="/RepositoryClient;component/Images/blue%20arrow.png" Stretch="Fill" VerticalAlignment="Top" Width="109" MouseLeftButtonDown="image3_MouseLeftButtonDown" />
+                    <Image Height="76" HorizontalAlignment="Left" Margin="306,152,0,0" Name="image4" Stretch="Fill" VerticalAlignment="Top" Width="109" Source="/RepositoryClient;component/Images/blue%20arrow.png" MouseLeftButtonDown="image4_MouseLeftButtonDown" />
+                    <Label Content="Select Package" Height="28" HorizontalAlignment="Left" Margin="315,118,0,0" Name="label16" VerticalAlignment="Top" />
+                    <Label Content="Add to Dependencies" Height="28" HorizontalAlignment="Left" Margin="300,298,0,0" Name="label22" VerticalAlignment="Top" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <StatusBar Height="23" HorizontalAlignment="Left" Margin="-1,516,0,0" Name="statusBar1" VerticalAlignment="Top" Width="780" />
+    </Grid>
+</Window>
